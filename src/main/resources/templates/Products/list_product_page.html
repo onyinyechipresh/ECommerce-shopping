@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Products</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+<div class="nav-bar">
+    <span><h1>Oblique Div</h1></span>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/addproduct}">Add Product</a></li>
+        <li><a th:href="@{/myListProduct}">View Product</a></li>
+        <li><a href="">Order</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</div>
+<div align="center">
+    <h1>Product List</h1>
+    <table cellpadding="10" border="1">
+        <thead><tr >
+            <td>Product ID</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Price</td>
+            <td>View Product</td>
+            <td>Edit Product</td>
+            <td>Delete Product</td>
+        </tr></thead>
+        <tbody><tr th:each="product : ${allProduct}">
+            <td th:text="${product.id}">Product ID</td>
+            <td th:text="${product.name}">Name</td>
+            <td th:text="${product.category}">Category</td>
+            <td th:text="${product.price}">Price</td>
+            <td><a th:href="@{'/myListProduct/' + ${product.id}}">View</a></td>
+            <td><a th:href="@{'/edit/' + ${product.id}}" class="btn btn-primary">Edit</a></td>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <td><a th:href="@{'/delete/' + ${product.id}}" class="btn btn-primary">Delete</a></td>
+        </tr></tbody>
+    </table>
+</div>
+</body>
+</html>

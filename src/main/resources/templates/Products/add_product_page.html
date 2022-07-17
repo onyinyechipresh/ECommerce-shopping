@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+<div class="nav-bar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/addproduct}">Add Product</a></li>
+        <li><a th:href="@{/myListProduct}">View Product</a></li>
+        <li><a href="">Order</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</div>
+    <div class="form">
+        <h2>Add Products</h2>
+        <form method="post" th:action="@{/myproducts}" th:object="${product}">
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text"  placeholder="Product name" th:field="*{name}"/>
+        </div>
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="text"  placeholder="Enter Category" th:field="*{category}"/>
+        </div>
+        <div class="input-box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input type="number" placeholder="Enter Price" th:field="*{price}"/>
+        </div>
+        <div class="input-box">
+            <input type="text"  placeholder="Image" th:field="*{image}"/>
+        </div>
+        <div class="input-box">
+            <input type="submit" value="Add">
+        </div>
+        </form>
+    </div>
+</body>
+</html>

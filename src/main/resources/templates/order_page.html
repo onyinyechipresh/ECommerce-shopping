@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Page</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+<div class="nav-bar">
+    <span><h1>Oblique Div</h1></span>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/cart}">Cart</a></li>
+        <li><a th:href="@{/orderPage}">Order</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</div>
+<div align="center">
+    <h1>Product List</h1>
+    <table cellpadding="10" border="1">
+        <thead><tr>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Price</td>
+            <td>View Product</td>
+            <td>Add To Cart</td>
+        </tr></thead>
+        <tbody><tr th:each="product : ${product}">
+            <td th:text="${product.name}">Name</td>
+            <td th:text="${product.category}">Category</td>
+            <td th:text="${product.price}">Price</td>
+            <td><a th:href="@{'/myListProduct/' + ${product.id}}">View</a></td>
+            <td><a th:href="@{/addToCart/{id}(id = ${product.id})}">Add To  Cart</a></td>
+        </tr></tbody>
+    </table>
+</div>
+</body>
+</html>

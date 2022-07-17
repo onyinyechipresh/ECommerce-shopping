@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Products</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="nav-bar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/addproduct}">Add Product</a></li>
+        <li><a th:href="@{/myListProduct}">View Product</a></li>
+        <li><a href="">Order</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" th:src="@{${product.image}}" alt="Card image cap">
+    <div class="card-body">
+        <span><h3 th:text="${product.name}"></h3></span>
+        <span><h3 th:text="${product.price}"></h3></span>
+    </div>
+</div>
+</body>
+</html>
